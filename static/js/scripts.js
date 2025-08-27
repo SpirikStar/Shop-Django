@@ -2,11 +2,11 @@ function performSearch() {
   const searchTerm = document.getElementById("searchInput").value.toLowerCase();
   const resultsContainer = document.getElementById("results");
 
-  if (searchTerm.trim() === "") {
-    resultsContainer.innerHTML =
-      '<div class="no-results">Введите запрос для поиска</div>';
-    return;
-  }
+  // if (searchTerm.trim() === "") {
+  //   resultsContainer.innerHTML =
+  //     '<div class="no-results">Введите запрос для поиска</div>';
+  //   return;
+  // }
   $.ajax({
     method: "GET",
     url: `/search?q=${searchTerm}`,
@@ -19,6 +19,7 @@ function performSearch() {
           let card = document.createElement('div')
           card.className = 'card'
           card.innerHTML = `
+            <img src="/media/${product['photo']}">
             <h4>${product['title']}</h4>
             <p>${product['price']}</p>
           `
